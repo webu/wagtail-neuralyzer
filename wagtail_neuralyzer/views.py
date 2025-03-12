@@ -18,13 +18,6 @@ from wagtail.admin.views.generic import WagtailAdminTemplateMixin
 from wagtail.admin.views.generic.base import WagtailAdminTemplateMixin
 from wagtail.admin.views.generic.mixins import HookResponseMixin
 from wagtail.models import ReferenceIndex
-from wagtail.snippets.views.snippets import SnippetViewSet
-
-
-from wagtail.admin.views.generic import HookResponseMixin
-from wagtail.admin.views.generic import WagtailAdminTemplateMixin
-from wagtail.admin.views.generic.base import WagtailAdminTemplateMixin
-from wagtail.admin.views.generic.mixins import HookResponseMixin
 
 from .action import NeuralyzeAction
 
@@ -159,12 +152,25 @@ class NeuralyzeView(
         return context
 
 
-class NeuralyzeSnippetViewSetMixin(SnippetViewSet):
-    neuralyze_view = NeuralyzeView
+class NeuralyzeSnippetViewSetMixin:
+    neuralyze_view_class = NeuralyzeView
 
     def get_urlpatterns(self):
         urlpatterns = super().get_urlpatterns()
-        urlpatterns += [
-            path("neuralyze/<str:pk>/", self.neuralyze_view, name="neuralyze")
-        ]
+        urlpatterns += [path("neuralyze/<str:pk>/", self.neuralyze_view, name="neuralyze")]
         return urlpatterns
+
+    @property
+    def neuralyze_view(self):
+        view = self.construct_view(
+            self.neuralyze_view_class,
+            template_name=self.get_templates(
+                "neuralyze", fallback=self.neuralyze_view_class.template_name
+            ),
+        )
+        return view
+
+    def get_common_view_kwargs(self, **kwargs):
+        return super().get_common_view_kwargs(
+            **{"neuralyze_url_name": self.get_url_name("neuralyze")}, **kwargs
+        )

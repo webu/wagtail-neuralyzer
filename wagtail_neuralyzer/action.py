@@ -16,9 +16,7 @@ class NeuralyzePermissionError(PermissionDenied):
 
 
 class NeuralyzeAction:
-    def __init__(
-        self, object, commit=True, user=None, log_action=True, neuralyzer=None
-    ):
+    def __init__(self, object, commit=True, user=None, log_action=True, neuralyzer=None):
         self.object = object
         self.commit = commit
         self.user = user
@@ -31,9 +29,7 @@ class NeuralyzeAction:
             and not skip_permission_checks
             and not self.object.permissions_for_user(self.user).can_neuralyze()
         ):
-            raise NeuralyzePermissionError(
-                "You do not have permission to neuralyze this object"
-            )
+            raise NeuralyzePermissionError("You do not have permission to neuralyze this object")
 
     def _commit_neuralyze(self, object):
         object.save()
@@ -58,9 +54,7 @@ class NeuralyzeAction:
         if log_action:
             log(
                 instance=object,
-                action=log_action
-                if isinstance(log_action, str)
-                else "wagtail.neuralyze",
+                action=log_action if isinstance(log_action, str) else "wagtail.neuralyze",
                 user=user,
             )
 
