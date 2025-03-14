@@ -1,8 +1,11 @@
 import logging
 
 from django.core.exceptions import PermissionDenied
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext
 
 from wagtail.log_actions import log
+from wagtail.snippets.bulk_actions.snippet_bulk_action import SnippetBulkAction
 
 logger = logging.getLogger("wagtail_neuralyzer")
 
@@ -73,3 +76,35 @@ class NeuralyzeAction:
             user=self.user,
             log_action=self.log_action,
         )
+
+
+class NeuralyzeBulkAction(SnippetBulkAction):
+    models = None
+    neuralyzer_class = None
+    display_name = _("Neuralyze")
+    aria_label = _("Neuralyze")
+    action_type = "neuralyze"
+    template_name = "wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html"
+
+    @classmethod
+    def execute_action(
+        cls,
+        objects,
+        user=None,
+        permission_checker=None,
+        **kwargs,
+    ):
+        num_parent_objects, num_child_objects = 0, 0
+        neuralyzer = cls.neuralyzer_class()
+        for obj in objects:
+            neuralyzer.run(filters={"pk": obj.pk})
+            num_parent_objects += 1
+
+        return num_parent_objects, num_child_objects
+
+    def get_success_message(self, num_parent_objects, num_child_objects):
+        return ngettext(
+            "%(num_parent_objects)d object has been neuralyzed",
+            "%(num_parent_objects)d objects have been neuralyzed",
+            num_parent_objects,
+        ) % {"num_parent_objects": num_parent_objects}

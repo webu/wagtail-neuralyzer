@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wagtail_neuralyzer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-14 09:24-0500\n"
+"POT-Creation-Date: 2025-03-14 10:09-0500\n"
 "PO-Revision-Date: 2025-03-14 09:24-0500\n"
 "Last-Translator: samuel weber <s.weber@webu.coop>\n"
 "Language-Team: French\n"
@@ -16,14 +16,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: action.py:84 action.py:85
+#: templates/wagtailadmin/generic/confirm_neuralyze.html:5
+#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:11
+#: wagtail_hooks.py:8
+msgid "Neuralyze"
+msgstr "Neurolaser"
+
+#: action.py:107
+#, python-format
+msgid "%(num_parent_objects)d object has been neuralyzed"
+msgid_plural "%(num_parent_objects)d objects have been neuralyzed"
+msgstr[0] "%(num_parent_objects)d objet a été neurolasé"
+msgstr[1] "%(num_parent_objects)d objets ont été neurolasé"
+
 #: templates/wagtailadmin/generic/confirm_neuralyze.html:3
 #, python-format
 msgid "Neuralyze %(title)s"
 msgstr "Neurolaser %(title)s"
-
-#: templates/wagtailadmin/generic/confirm_neuralyze.html:5 wagtail_hooks.py:8
-msgid "Neuralyze"
-msgstr "Neurolaser"
 
 #: templates/wagtailadmin/generic/confirm_neuralyze.html:14
 #, python-format
@@ -35,8 +46,35 @@ msgid "Yes, neuralyze it"
 msgstr "Oui, neurolaser-le"
 
 #: templates/wagtailadmin/generic/confirm_neuralyze.html:28
-msgid "Non, ne pas le neurolaser"
-msgstr ""
+#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:35
+#, fuzzy
+#| msgid "Neuralyze"
+msgid "No, don't neuralyze"
+msgstr "Non, ne pas neurolaser"
+
+#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:6
+#, fuzzy, python-format
+#| msgid "Neuralyze"
+msgid "Neuralyze 1 object"
+msgid_plural "Neuralyze %(counter)s objects"
+msgstr[0] "Neurolase 1 object"
+msgstr[1] "Neurolase %(counter)s objects"
+
+#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:16
+#, fuzzy
+#| msgid "Are you sure you want to neuralyze this %(model_name)s?"
+msgid "Are you sure you want to neuralyze these objects?"
+msgstr "Êtes-vous sûr de vouloir neurolaser ce %(model_name)s ?"
+
+#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:27
+msgid "You don't have permission to neurolyze this page"
+msgid_plural "You don't have permission to neuralyze these objects"
+msgstr[0] "Vous n'avez pas la permission pour neurolaser cet objet"
+msgstr[1] "Vous n'avez pas la permission pour neurolaser ces objets"
+
+#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:34
+msgid "Yes, neuralyze"
+msgstr "Oui, neurolaser"
 
 #: views.py:41
 #, python-format
