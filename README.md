@@ -21,9 +21,7 @@ INSTALLED_APP = [
 ]
 ```
 
-```py
-
-```
+### Add item action
 
 Add the `NeuralyzeSnippetViewSetMixin` to your snippet class:
 
@@ -47,3 +45,21 @@ class PersonSnippetViewSet(NeuralyzeSnippetViewSetMixin, SnippetViewSet):
 ```
 
 And _Tada_, your model should have an "Anonymize" action together with save/delete/publish/...
+
+### Add bulk action
+
+You can also add bulk action to the index view by registering wagtail hook
+
+```py
+from wagtail import hooks
+
+from wagtail_neuralyzer.action import NeuralyzeBulkAction
+
+from my_app.models import Person
+from my_app.neuralyzers import StudentNeuralyzer
+
+@hooks.register("register_bulk_action")
+class PersonNeuralyzerBulkAction(NeuralyzeBulkAction):
+    models = [Person] # specify model here
+    neuralyzer_class = PersonNeuralyzer # and neuralyzer to use here
+```
