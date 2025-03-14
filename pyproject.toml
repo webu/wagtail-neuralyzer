@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "wagtail-neuralyzer"
 version = "0.0.0"
-description = "Anonymize specific django model for specific instance"
+description = "Anonymize specific django model for specific instance - support for wagtail"
 authors = [
     {name = "WebU dev team", email = "contact@webu.coop"},
 ]
@@ -13,6 +13,8 @@ readme = "README.md"
 requires-python = ">= 3.6"
 dependencies = [
     "django>=2.2",
+    "wagtail",
+    "django-neuralyzer",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
