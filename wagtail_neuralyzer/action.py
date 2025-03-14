@@ -54,7 +54,9 @@ class NeuralyzeAction:
         if log_action:
             log(
                 instance=object,
-                action=log_action if isinstance(log_action, str) else "wagtail.neuralyze",
+                action=log_action
+                if isinstance(log_action, str)
+                else "wagtail_neuralyzer.neuralyze",
                 user=user,
             )
 
