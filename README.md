@@ -44,6 +44,18 @@ class PersonSnippetViewSet(NeuralyzeSnippetViewSetMixin, SnippetViewSet):
     ...
 ```
 
+and finally register the new action:
+
+```py
+from wagtail import hooks
+from wagtail_neuralyzer.menu_item import NeuralyzeMenuItem
+
+@hooks.register("register_snippet_action_menu_item")
+def register_anonymize_menu_item(model):
+    if model == Person:
+        return NeuralyzeMenuItem()
+```
+
 And _Tada_, your model should have an "Anonymize" action together with save/delete/publish/...
 
 ### Add bulk action
