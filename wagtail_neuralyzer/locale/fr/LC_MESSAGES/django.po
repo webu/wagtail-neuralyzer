@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wagtail_neuralyzer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-26 06:24-0500\n"
+"POT-Creation-Date: 2025-03-28 06:43-0500\n"
 "PO-Revision-Date: 2025-03-14 09:24-0500\n"
 "Last-Translator: samuel weber <s.weber@webu.coop>\n"
 "Language-Team: French\n"
@@ -28,6 +28,11 @@ msgid "%(num_parent_objects)d object has been neuralyzed"
 msgid_plural "%(num_parent_objects)d objects have been neuralyzed"
 msgstr[0] "%(num_parent_objects)d objet a été anonymisé"
 msgstr[1] "%(num_parent_objects)d objets ont été anonymisés"
+
+#: menu_item.py:10
+#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:11
+msgid "Anonymize"
+msgstr "Anonymiser"
 
 #: templates/wagtailadmin/generic/confirm_neuralyze.html:3
 #, python-format
@@ -53,10 +58,6 @@ msgid "Anonymize 1 object"
 msgid_plural "Anonymize %(counter)s objects"
 msgstr[0] "Anonymiser 1 object"
 msgstr[1] "Anonymiser %(counter)s objects"
-
-#: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:11
-msgid "Anonymize"
-msgstr "Anonymiser"
 
 #: templates/wagtailadmin/wagtail_neuralyzer/bulk_actions/confirm_bulk_neuralyze.html:16
 msgid "Are you sure you want to anonymize these objects?"
