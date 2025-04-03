@@ -38,7 +38,7 @@ class NeuralyzeAction:
         # utilisé pour lancer un signal
         # neuralyzed.send(sender=type(object), instance=object)
 
-    def _neuralyze_object(self, object, commit, user, log_action):
+    def _neuralyze_object(self, object, user, log_action):
         """
         Neuralyze the object using Neuralyzer
 
