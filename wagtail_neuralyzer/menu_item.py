@@ -14,3 +14,6 @@ class NeuralyzeMenuItem(ActionMenuItem):
         instance = context["instance"]
         url_name = instance.snippet_viewset.get_url_name("neuralyze")
         return reverse(url_name, args=[quote(instance.pk)])
+
+    def is_shown(self, context):
+        return "instance" in context
