@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wagtail_neuralyzer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-28 06:43-0500\n"
+"POT-Creation-Date: 2025-12-10 07:01-0600\n"
 "PO-Revision-Date: 2025-03-14 09:24-0500\n"
 "Last-Translator: samuel weber <s.weber@webu.coop>\n"
 "Language-Team: French\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: action.py:84 action.py:85
+#: action.py:76 action.py:77
 #: templates/wagtailadmin/generic/confirm_neuralyze.html:5 wagtail_hooks.py:8
 msgid "Neuralyze"
 msgstr "Anonymiser"
 
-#: action.py:107
+#: action.py:99
 #, python-format
 msgid "%(num_parent_objects)d object has been neuralyzed"
 msgid_plural "%(num_parent_objects)d objects have been neuralyzed"
@@ -44,11 +44,15 @@ msgstr "Anonymiser %(title)s"
 msgid "Are you sure you want to neuralyze this %(model_name)s?"
 msgstr "Êtes-vous sûr de vouloir anonymiser ce %(model_name)s ?"
 
-#: templates/wagtailadmin/generic/confirm_neuralyze.html:27
+#: templates/wagtailadmin/generic/confirm_neuralyze.html:19
+msgid "This action takes effect immediately and cannot be cancelled."
+msgstr ""
+
+#: templates/wagtailadmin/generic/confirm_neuralyze.html:32
 msgid "Yes, neuralyze it"
 msgstr "Oui, anonymiser"
 
-#: templates/wagtailadmin/generic/confirm_neuralyze.html:28
+#: templates/wagtailadmin/generic/confirm_neuralyze.html:33
 msgid "No, don't neuralyze"
 msgstr "Non, ne pas anonymiser"
 
