@@ -46,7 +46,7 @@ msgstr "Êtes-vous sûr de vouloir anonymiser ce %(model_name)s ?"
 
 #: templates/wagtailadmin/generic/confirm_neuralyze.html:19
 msgid "This action takes effect immediately and cannot be cancelled."
-msgstr ""
+msgstr "Cette action est à effet immédiat et ne peut pas être annulée"
 
 #: templates/wagtailadmin/generic/confirm_neuralyze.html:32
 msgid "Yes, neuralyze it"
